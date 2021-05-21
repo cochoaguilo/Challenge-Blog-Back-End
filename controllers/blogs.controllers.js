@@ -97,9 +97,9 @@ const updateBlog = async (req, res) =>{
       await sequelize.query(`UPDATE  Blog
       SET  Titulo= "${title}",
       Contenido = "${content}",
-      Imagen = ${image},
+      Imagen = "${image}",
       Fecha = "${date}",
-      Categoria = "${Category[0].id_categoria}"
+      id_categoria = "${Category[0].id_categoria}"
       WHERE id = ${req.params.id}`,
       { type: sequelize.QueryTypes.INSERT })
       .then((data =>{
